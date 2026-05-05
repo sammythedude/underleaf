@@ -1,0 +1,61 @@
+{
+  "name": "underleaf",
+  "version": "0.1.0",
+  "description": "A local-first LaTeX editor with live view and PDF preview.",
+  "productName": "Underleaf",
+  "type": "module",
+  "main": "dist-electron/main.js",
+  "bin": {
+    "underleaf": "bin/underleaf.js"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && electron-builder",
+    "build:dir": "tsc --noEmit && vite build && electron-builder --dir",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "link-cli": "npm link"
+  },
+  "build": {
+    "appId": "com.underleaf.desktop",
+    "artifactName": "Underleaf-${version}-${arch}.${ext}",
+    "files": [
+      "dist/**",
+      "dist-electron/**",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "release"
+    },
+    "asar": true,
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dir",
+        "zip"
+      ]
+    }
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "@types/node": "^24.9.1",
+    "@unified-latex/unified-latex": "^1.8.4",
+    "electron-log": "^5.4.3",
+    "pdfjs-dist": "^5.6.205",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.2.0",
+    "electron": "^41.2.0",
+    "electron-builder": "^26.8.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12",
+    "vite-plugin-electron": "^0.29.1",
+    "vitest": "^3.2.4"
+  }
+}
