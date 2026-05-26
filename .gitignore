@@ -4,3 +4,9 @@ dist-electron
 release
 coverage
 .DS_Store
+.claude/
+*.log
+*.local.json
+*.iconset/
+.env
+.env.*
