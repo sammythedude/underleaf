@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/sammythedude/underleaf/releases/latest"><strong>Download for macOS</strong></a>
+  <a href="#install"><strong>Install</strong></a>
   ·
   <a href="#local-development">Run from source</a>
   ·
@@ -24,11 +24,9 @@ Underleaf is for people who like the plain-file workflow of LaTeX, but still wan
 
 It is intentionally local-first: no account, no project upload, no cloud editor in the middle.
 
-## Screenshots
+## Screenshot
 
-| Dashboard | Workspace |
-| --- | --- |
-| ![Underleaf dashboard](docs/images/dashboard.png) | ![Underleaf workspace](docs/images/workspace.png) |
+![Underleaf dashboard](docs/images/dashboard.png)
 
 ## Features
 
@@ -41,11 +39,27 @@ It is intentionally local-first: no account, no project upload, no cloud editor 
 - Guided local TeX engine setup with Tectonic/TinyTeX support
 - CLI launcher: `underleaf [project-folder]`
 
-## Download
+## Install
 
-Grab the latest macOS build from the [GitHub Releases page](https://github.com/sammythedude/underleaf/releases/latest).
+Install the latest macOS release directly from GitHub:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/sammythedude/underleaf/main/install.sh | bash
+underleaf --version
+underleaf --help
+```
+
+The installer downloads the latest release zip, copies `Underleaf.app` into `~/Applications`, and adds a small `underleaf` launcher to `~/.local/bin`.
+
+You can also grab the latest macOS build from the [GitHub Releases page](https://github.com/sammythedude/underleaf/releases/latest).
 
 The current release ships as a macOS `.zip`. Unzip it, move `Underleaf.app` to Applications, then open it. Because the app is not notarized yet, macOS may ask you to confirm the first launch from System Settings or by right-clicking the app and choosing Open.
+
+If your shell cannot find `underleaf` after installation, add this to your shell profile:
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
 
 ## Local Development
 
